@@ -4,12 +4,16 @@ import React from "react";
 class MyComponent extends React.Component {
 
     state = {
-        name: 'leanh',
-        major: 'IT'
+        name: "leanh",
+        major: "IT"
     }
 
-    handleChangeName = (e) => {
-        this.setState({ name: e.target.name });
+    handleOnChangeName = (event) => {
+        this.setState({ name: event.target.value });
+    }
+
+    handleClickButton = () => {
+        alert("success")
     }
 
 
@@ -18,7 +22,9 @@ class MyComponent extends React.Component {
         return (
             <>
                 <div className="first">
-                    <input type="text" value={this.state.name} onChange={(e) => this.handleChangeName(e)}></input>
+                    <input value={this.state.name} type="text"
+                        onChange={(event) => this.handleOnChangeName(event)}
+                    />
                     hello everyone, my name {this.state.name}
 
                 </div>
@@ -27,6 +33,10 @@ class MyComponent extends React.Component {
                     Majority : {this.state.major}
                 </div>
 
+
+                <div className="Third">
+                    <button onClick={() => this.handleClickButton()}>click</button>
+                </div>
             </>
         )
     }
